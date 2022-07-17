@@ -1,2 +1,2 @@
 # test
-pruebas de código en PRIVADO
+pruebas de código
