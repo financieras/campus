@@ -1,3 +1,5 @@
+# código que no funciona correctamente, tiene errores. Ver el pilas7.py
+
 from random import sample, seed
 import openpyxl            # importamos la librería openpyxl
 from itertools import permutations
