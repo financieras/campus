@@ -1,2 +1,2 @@
-# test
-pruebas de código
+# campus
+algunos retos interesantes
