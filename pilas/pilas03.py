@@ -42,14 +42,14 @@ def rrr(a,b):
     return a,b
 
 if __name__ == "__main__":
-    a_original = [2, 1, 4, 3]
+    a_original = [2, 6, 1, 8, 7, 10, 9, 3, 4, 5]
     b_original = []
     a_ordenada = sorted(a_original)
-    catalogo = ["sa","sb","pa","pb","ra","rb","rra","rrb"]  # "ss","rr","rrr"
+    catalogo = ["sa","sb","pa","pb","ra","rb","rra","rrb", "ss","rr","rrr"]
     print('\ta: ', a_original)
     print('\tb: ', b_original)
-    mejor_respuesta = [None]*(100+len(a_original)**3)
-    #mejor_respuesta = ['pa', 'pa']
+    #mejor_respuesta = [None]*(100+len(a_original)**3)
+    mejor_respuesta = ['pb', 'ra', 'pb', 'ss', 'ra', 'ra', 'sa', 'rr', 'rr', 'pa', 'pa']
     len_mejor = len(mejor_respuesta)
     las_mejores = []
     while True:
