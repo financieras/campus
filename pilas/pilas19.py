@@ -43,7 +43,12 @@ def busca(a,b):    # Estas son a y b: [4, 3, 2, 1] []
                 agrega(k, i, aCopy, bCopy)
 
 if __name__ == "__main__":
-    a_string = "4 3 2 1"
+    import openpyxl                # importamos la librería openpyxl
+    wb = openpyxl.Workbook()       # para crear por primera vez un libro
+    ws = wb.active                 # estas dos lineas crean el libro, aún sin nombre
+    wb.save('arbol.xlsx')          # grabamos el fichero por primera vez
+
+    a_string = "1 3 2"
     a = a_string.replace(" ", "")   # '4321'
     d = {(): a_string + "|"}   # diccionario. Ejemplo: {():'4 3 2 1|', ('sa',):'3 4 2 1|', ('pb',):'3 2 1|4', ('ra',):'3 2 1 4|', ('rra',):'1 4 3 2|', ('pb', 'sa'):'2 3 1|4', ('pb', 'pb'):'2 1|3 4'}
     moves = ["sa","sb","pa","pb","ra","rb","rra","rrb","ss","rr","rrr"]
@@ -52,3 +57,18 @@ if __name__ == "__main__":
     valor_ordenado = ' '.join(map(str, list(range(1, len(a)+1)))) + '|'   #  "1 2 3 4|"
     busca(a,b)
     print(list(d.keys())[list(d.values()).index(valor_ordenado)])   # da la clave que corresponde al valor ordenado "1 2 3 4|"
+    #print(d)
+    
+    # Cuando ya sebemos que queremos trabajar con el archivo arbol.xlsx
+    #wb = openpyxl.load_workbook('arbol.xlsx')
+
+    ws = wb["Sheet"]         # accediendo a la hoja Sheet
+
+    fila = 11
+    for k,v in d.items():
+        ws.cell(row=fila, column=3).value = str(k)
+        ws.cell(row=fila, column=4).value = v
+        fila += 1
+
+    wb.save('arbol.xlsx')
+    wb.close()
