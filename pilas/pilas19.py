@@ -43,13 +43,14 @@ def busca(a,b):    # Estas son a y b: [4, 3, 2, 1] []
                 agrega(k, i, aCopy, bCopy)
 
 if __name__ == "__main__":
-    a_string = "6 5 4 3 2 1"
-    a = a_string.replace(" ", "")   # '4321'
-    d = {(): a_string + "|"}   # diccionario. Ejemplo: {():'4 3 2 1|', ('sa',):'3 4 2 1|', ('pb',):'3 2 1|4', ('ra',):'3 2 1 4|', ('rra',):'1 4 3 2|', ('pb', 'sa'):'2 3 1|4', ('pb', 'pb'):'2 1|3 4'}
+    a_str = "6 5 4 3 2 1"
     moves = ["sa","sb","pa","pb","ra","rb","rra","rrb","ss","rr","rrr"]
-    a = [int(x) for x in a]   # [4, 3, 2, 1]
+    d = {(): a_str + "|"}   # diccionario. Ejemplo: {():'4 3 2 1|', ('sa',):'3 4 2 1|', ('pb',):'3 2 1|4', ('ra',):'3 2 1 4|', ('rra',):'1 4 3 2|', ('pb', 'sa'):'2 3 1|4', ('pb', 'pb'):'2 1|3 4'}
+    a = [int(num) for num in a_str.split()]   # [4, 3, 2, 1]
     b = []
     valor_ordenado = ' '.join(map(str, sorted(a))) + '|'   #  "1 2 3 4|"
     busca(a,b)
     print(list(d.keys())[list(d.values()).index(valor_ordenado)])   # da la clave que corresponde al valor ordenado "1 2 3 4|"
     #print(d)   # imprime el diccionario completo
+    #print("valor_ordenado:", valor_ordenado)
+    #print("a:", a)
