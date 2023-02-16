@@ -41,7 +41,7 @@ def busca(a,b):    # Estas son a y b: [4, 3, 2, 1] []
                 agrega(k, i, aCopy, bCopy)
 
 if __name__ == "__main__":   # Este código funciona con números no correlativos, grandes, negativos y cero. Para n=6 tarda 4 segundos aprox.
-    a_str = "6 5 4 3 2 1"  # este ejemplo equivale a "2147483647 32767 4 0 -32768 -2147483648"
+    a_str = "6 5 4 3 2 1"  # este ejemplo equivale a "9223372036854775807 2147483647 32767 0 -2147483648 -9223372036854775808"
     moves = ["sa","sb","pa","pb","ra","rb","rra","rrb","ss","rr","rrr"]
     d = {(): a_str + "|"}   # diccionario. Ejemplo: {():'4 3 2 1|', ('sa',):'3 4 2 1|', ('pb',):'3 2 1|4', ('ra',):'3 2 1 4|', ('rra',):'1 4 3 2|', ('pb', 'sa'):'2 3 1|4', ('pb', 'pb'):'2 1|3 4'}
     a = [int(num) for num in a_str.split()]   # [4, 3, 2, 1]
