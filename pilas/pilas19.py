@@ -2,12 +2,10 @@ from funciones import *
 
 def separa_valor(v):
     posicion = v.find('|')
-    a = v[:posicion]
-    b = v[posicion+1:]
-    a = a.replace(" ", "")
-    b = b.replace(" ", "")
-    a = [int(x) for x in a]
-    b = [int(y) for y in b]
+    a_str = v[:posicion]
+    b_str = v[posicion+1:]
+    a = [int(num) for num in a_str.split()]   # [4, 3, 2, 1]
+    b = [int(num) for num in b_str.split()]
     return a, b
 
 def agrega(k, instruccion, aCopy, bCopy):
@@ -42,8 +40,8 @@ def busca(a,b):    # Estas son a y b: [4, 3, 2, 1] []
                 elif (i == "rrr"): aCopy, bCopy = rrr(a[:], b[:])
                 agrega(k, i, aCopy, bCopy)
 
-if __name__ == "__main__":
-    a_str = "6 5 4 3 2 1"
+if __name__ == "__main__":   # Este código funciona con números no correlativos, grandes, negativos y cero. Para n=6 tarda 4 segundos aprox.
+    a_str = "6 5 4 3 2 1"  # este ejemplo equivale a "2147483647 32767 4 0 -32768 -2147483648"
     moves = ["sa","sb","pa","pb","ra","rb","rra","rrb","ss","rr","rrr"]
     d = {(): a_str + "|"}   # diccionario. Ejemplo: {():'4 3 2 1|', ('sa',):'3 4 2 1|', ('pb',):'3 2 1|4', ('ra',):'3 2 1 4|', ('rra',):'1 4 3 2|', ('pb', 'sa'):'2 3 1|4', ('pb', 'pb'):'2 1|3 4'}
     a = [int(num) for num in a_str.split()]   # [4, 3, 2, 1]
@@ -52,5 +50,3 @@ if __name__ == "__main__":
     busca(a,b)
     print(list(d.keys())[list(d.values()).index(valor_ordenado)])   # da la clave que corresponde al valor ordenado "1 2 3 4|"
     #print(d)   # imprime el diccionario completo
-    #print("valor_ordenado:", valor_ordenado)
-    #print("a:", a)
