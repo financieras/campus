@@ -168,9 +168,8 @@ if __name__ == "__main__":
     n = 500   # número de elementos de la pila
     limite = 5500   # para n=100 limite<700, para n=500 limite<5500
     n_intentos = [0]*56   # array que contará los intentos de tipo cero, uno, dos, tres,....
-    for i in range(20):
+    for i in range(10000):
         a = generaPilaA(n)
-        #print('a:', a)
         b = []
         a_original = a[:]
         n = len(a)
@@ -190,9 +189,8 @@ if __name__ == "__main__":
             subirTodo_a_A()
             if contador < limite:
                 n_intentos[intento] += 1
-                if intento > 3:
-                    print(a_original)
-                    print("intento:", intento, "LIS:", lis, "contador:", contador, "\na:", a, "\n")
+                if intento > 4:
+                    print("intento:", intento, "LIS:", lis, "contador:", contador, "a:", a_original, "\n")
                 break
             intento += 1
             #print(f"La pila A {'SI' if sorted(a_original)==a else 'No' } está ordenada.")
