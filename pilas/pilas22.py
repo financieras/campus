@@ -189,12 +189,12 @@ if __name__ == "__main__":
             subirTodo_a_A()
             if contador < limite:
                 n_intentos[intento] += 1
-                if intento >= 6:
+                if intento >= 10:
                     print("intento:", intento, "LIS:", lis, "contador:", contador, "a:", a_original, "\n")
                 break
             intento += 1
             #print(f"La pila A {'SI' if sorted(a_original)==a else 'No' } está ordenada.")
             #print(f"contador: {contador}")
         if i%1000==0:
-            print(i, n_intentos[:9])
+            print(i, n_intentos)
     print(n_intentos)
