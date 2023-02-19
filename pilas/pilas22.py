@@ -189,7 +189,7 @@ if __name__ == "__main__":
             subirTodo_a_A()
             if contador < limite:
                 n_intentos[intento] += 1
-                if intento > 4:
+                if intento > 5:
                     print("intento:", intento, "LIS:", lis, "contador:", contador, "a:", a_original, "\n")
                 break
             intento += 1
